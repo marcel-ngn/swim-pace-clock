@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swim Pace Clock</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <h1>Pace Clock</h1>
+            <button id="reset-session" class="header-btn hidden">
+                <i class="fa-solid fa-rotate-right"></i>
+            </button>
+        </header>
+
+        <main>
+            <div id="countdown-display" class="countdown-display hidden">
+                <p>Next heat in: <span id="countdown-timer">--</span>s</p>
+            </div>
+
+            <div id="config-screen" class="config-screen">
+                <div class="config-group">
+                    <label for="iteration-count">How many heats?</label>
+                    <input type="number" id="iteration-count" value="10" min="1" pattern="\d*">
+                </div>
+                <div class="config-group">
+                    <label for="delay-select">Start every...</label>
+                    <select id="delay-select">
+                        <option value="5">5 seconds</option>
+                        <option value="10" selected>10 seconds</option>
+                        <option value="15">15 seconds</option>
+                        <option value="30">30 seconds</option>
+                        <option value="60">60 seconds</option>
+                    </select>
+                </div>
+                <button id="start-session" class="start-btn">
+                    <i class="fa-solid fa-play"></i> Start Session
+                </button>
+            </div>
+
+            <div id="heats-container" class="heats-container">
+                <!-- Heats will be injected here -->
+            </div>
+
+            <div id="session-status" class="session-status hidden">
+                <p id="session-status-text">Session Complete</p>
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

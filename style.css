@@ -1,0 +1,283 @@
+/* style.css */
+:root {
+    --background: #121212;
+    --surface: #1e1e1e;
+    --primary: #bb86fc; /* A vibrant purple for primary actions */
+    --primary-variant: #3700b3;
+    --secondary: #03dac6; /* A teal for accents and stopped timers */
+    --on-background: #e1e1e1; /* Light text on dark background */
+    --on-surface: #ffffff; /* White text on surface elements */
+    --success: #4CAF50; /* Green for success states */
+    --danger: #f44336; /* Red for stop actions */
+    --font-family: 'Inter', sans-serif;
+    --primary-rgb: 187, 134, 252; /* RGB values of --primary for shadows */
+}
+
+/* Universal box-sizing for easier layout */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Base font size for responsive scaling */
+html {
+    font-size: 16px;
+}
+
+/* Body styling for dark mode and font */
+body {
+    font-family: var(--font-family);
+    background-color: var(--background);
+    color: var(--on-background);
+    -webkit-font-smoothing: antialiased; /* Smoother fonts on macOS/iOS */
+    -moz-osx-font-smoothing: grayscale; /* Smoother fonts on Firefox */
+    line-height: 1.5;
+}
+
+/* Main app container, constrained for iPhone-like width */
+.app-container {
+    max-width: 450px; /* Typical iPhone max width */
+    margin: 0 auto; /* Center the container */
+    padding: 1.2rem; /* Slightly more padding */
+}
+
+/* Header styling */
+.app-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+    margin-bottom: 1.8rem; /* More space below header */
+}
+
+.app-header h1 {
+    font-size: 2.4rem; /* Slightly larger title */
+    font-weight: 900; /* Extra bold */
+    color: var(--on-surface);
+    letter-spacing: -0.06em; /* Tighter letter spacing */
+}
+
+.header-btn {
+    background: none;
+    border: none;
+    color: var(--secondary); /* Accent color for reset icon */
+    font-size: 1.8rem; /* Larger icon for better tap target */
+    cursor: pointer;
+    padding: 0.6rem; /* More padding for tap target */
+    transition: color 0.2s ease-in-out;
+}
+
+.header-btn:active {
+    color: var(--primary); /* Feedback on tap */
+}
+
+/* Countdown Display */
+.countdown-display {
+    background-color: var(--surface);
+    border-radius: 0.8rem;
+    padding: 1rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.countdown-display p {
+    font-size: 1.1rem;
+    color: var(--on-background);
+    margin: 0;
+}
+
+#countdown-timer {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--primary);
+    min-width: 30px; /* Prevent jumping */
+    display: inline-block;
+}
+
+
+/* Configuration Screen */
+.config-screen {
+    background-color: var(--surface);
+    border-radius: 1.2rem; /* Slightly more rounded corners */
+    padding: 1.8rem; /* More padding */
+    display: flex;
+    flex-direction: column;
+    gap: 1.8rem; /* More space between config groups */
+    margin-bottom: 2.5rem; /* More space below config screen */
+    box-shadow: 0 6px 12px rgba(0,0,0,0.25); /* Stronger subtle shadow */
+}
+
+.config-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem; /* Slightly more gap */
+}
+
+.config-group label {
+    font-size: 1.15rem; /* Slightly larger label */
+    font-weight: 600;
+    color: var(--on-background);
+}
+
+.config-group input,
+.config-group select {
+    background-color: var(--background);
+    color: var(--on-surface);
+    border: 1px solid #333; /* Darker border */
+    border-radius: 0.8rem; /* More rounded inputs */
+    padding: 0.9rem; /* More padding */
+    font-size: 1.25rem; /* Slightly larger font */
+    width: 100%;
+    appearance: none; /* Remove default select arrow */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    cursor: pointer;
+}
+
+.config-group select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23e1e1e1'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E"); /* Custom arrow */
+    background-repeat: no-repeat;
+    background-position: right 0.8rem center; /* Adjust position */
+    background-size: 1.6em; /* Slightly larger arrow */
+    padding-right: 2.8rem; /* Space for custom arrow */
+}
+
+/* Hide number input spin buttons */
+input[type="number"] { -moz-appearance: textfield; }
+input::-webkit-outer-spin-button, input::-webkit-inner-spin-button { -webkit-appearance: none; }
+
+
+.start-btn {
+    background-color: var(--primary);
+    color: #000; /* Black text on primary button */
+    border: none;
+    border-radius: 0.8rem; /* More rounded */
+    padding: 1.3rem; /* More padding */
+    font-size: 1.4rem; /* Larger font */
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.8rem; /* More gap */
+    box-shadow: 0 5px 15px rgba(var(--primary-rgb), 0.5); /* Stronger shadow */
+}
+
+.start-btn:active {
+    transform: scale(0.97); /* Click feedback */
+    background-color: var(--primary-variant);
+}
+
+/* Heats Container */
+.heats-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem; /* More space between heat cards */
+}
+
+.heat-card {
+    background-color: var(--surface);
+    border-radius: 1.2rem; /* More rounded */
+    padding: 1.5rem; /* More padding */
+    animation: slideIn 0.5s cubic-bezier(0.25, 1, 0.5, 1); /* Smooth slide-in animation */
+    border-left: 6px solid var(--primary); /* Thicker accent border */
+    box-shadow: 0 3px 8px rgba(0,0,0,0.2); /* Stronger shadow */
+}
+
+@keyframes slideIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.heat-card-header {
+    font-size: 1.05rem; /* Slightly larger */
+    font-weight: 600;
+    color: var(--on-background);
+    margin-bottom: 1.2rem; /* More margin */
+    text-transform: uppercase;
+    letter-spacing: 0.09em; /* Slightly more letter spacing */
+    opacity: 0.75; /* Slightly less opaque */
+}
+
+.lanes-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 1.2rem; /* More gap between lanes */
+}
+
+.lane {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.9rem; /* More gap */
+}
+
+.time-display {
+    font-family: 'Inter', monospace;
+    font-size: 3.2rem; /* Even larger timer numbers */
+    font-weight: 700;
+    color: var(--on-surface);
+    min-width: 110px; /* Prevent jumping when numbers change */
+    text-align: center;
+}
+
+.time-display.stopped {
+    color: var(--secondary); /* Teal for stopped times */
+}
+
+.stop-btn {
+    background-color: var(--danger);
+    color: white;
+    border: none;
+    border-radius: 50%; /* Circular stop button */
+    width: 70px; /* Larger tap target */
+    height: 70px;
+    font-size: 1.2rem; /* Larger icon */
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out, transform 0.1s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.25); /* Stronger shadow */
+}
+
+.stop-btn:active {
+    transform: scale(0.95);
+}
+
+.stop-btn:disabled {
+    background-color: var(--success); /* Green when stopped */
+    cursor: not-allowed;
+    color: white; /* Ensure icon is white */
+}
+
+/* Session Status */
+.session-status {
+    text-align: center;
+    margin-top: 2.5rem; /* More margin */
+    padding: 1.8rem; /* More padding */
+    background-color: var(--surface);
+    border-radius: 1.2rem; /* More rounded */
+    box-shadow: 0 6px 12px rgba(0,0,0,0.25); /* Stronger shadow */
+}
+
+#session-status-text {
+    font-size: 1.4rem; /* Larger status text */
+    font-weight: 600;
+    color: var(--secondary);
+}
+
+/* Utility */
+.hidden {
+    display: none !important; /* Use !important to ensure it overrides other styles */
+}
