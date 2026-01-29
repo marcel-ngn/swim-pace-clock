@@ -171,8 +171,7 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button { -webkit-app
 }
 
 .start-btn:active {
-    transform: scale(0.97); /* Click feedback */
-    background-color: var(--primary-variant);
+    transform: scale(0.95);
 }
 
 /* Heats Container */
@@ -202,7 +201,7 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button { -webkit-app
     color: var(--on-background);
     margin-bottom: 1.2rem; /* More margin */
     text-transform: uppercase;
-    letter-spacing: 0.09em; /* Slightly more letter spacing */
+    letter-spacing: 0.09em;
     opacity: 0.75; /* Slightly less opaque */
 }
 
@@ -219,6 +218,16 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button { -webkit-app
     flex-direction: column;
     align-items: center;
     gap: 0.9rem; /* More gap */
+}
+
+.lane-label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--on-background);
+    opacity: 0.6;
+    margin-bottom: 0.5rem; /* Space between label and timer */
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
 }
 
 .time-display {
